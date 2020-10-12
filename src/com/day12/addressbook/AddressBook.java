@@ -155,6 +155,13 @@ public class AddressBook {
 		return false;
 
 	}
+	// UserCase 8
+	public void viewByCity(String city){
+		addressBook.stream().filter(contact -> contact.getCity().equalsIgnoreCase(city)).forEach(contact -> System.out.println(contact));
+	}
+	public void viewByState(String state){
+		addressBook.stream().filter(contact -> contact.getState().equalsIgnoreCase(state)).forEach(contact -> System.out.println(contact));
+	}
 
 // UserCase 7
 	public boolean noDuplicate(String firstName, String lastName) {

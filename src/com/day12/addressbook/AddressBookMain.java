@@ -19,10 +19,12 @@ public class AddressBookMain {
 		AddressBook obj = new AddressBook();
 		AddressBook ab;
 		AddressBookDictionary abdict = new AddressBookDictionary();
-		boolean while1 = true , while2 = true;
+		boolean while1 = true, while2 = true;
 
 		while (while1) {
-			System.out.println("1. Add New Address Book.\n2. Modify Existing Address Book.\n3. Exit");
+//			System.out.println(
+//					"1. Add New Address Book.\n2. Modify Existing Address Book.\n3. View All Contact in City.\n4. View All Contact in State.\n5. Exit.");
+			System.out.println("1. Add New Address Book.\n2. Modify Existing Address Book.\n5. Exit.");
 			System.out.println("Enter your choice: ");
 			int ch = Integer.parseInt(sc.nextLine());
 			if (ch == 1) {
@@ -105,19 +107,29 @@ public class AddressBookMain {
 							if (ans.equals("Y")) {
 								if (obj.removeDetails(first, last))
 									System.out.println("The Address Detail is successfully deleted.");
-							} 
-						}
-						else if (n == 5) {
+							}
+						} else if (n == 5) {
 							while2 = false;
-							
-						}else {
+
+						} else {
 							System.out.println("PLease Enter a Valid Number.\nThank You!");
-							
+
 						}
 					}
-				} else
+				} else {
 					System.out.println("Oops!! NO SUCH ADDRESS BOOK EXISTS.");
-			} else if (ch == 3) {
+				}
+//			else if (ch == 3) {
+//				System.out.println("Enter the City Name:");
+//				String city = sc.nextLine();
+//				obj.viewByCity(city);
+//
+//			} else if (ch == 4) {
+//				System.out.println("Enter the State Name:");
+//				String state = sc.nextLine();
+//				obj.viewByState(state);
+//
+			} else if (ch == 5) {
 				System.exit(0);
 			} else {
 				System.out.println("Invalid Input");
