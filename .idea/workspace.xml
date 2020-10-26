@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="8c61cbfb-7dd9-43a4-81c2-b691a3f10a59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/day12/addressbook/AddressBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/day12/addressbook/AddressBook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/day12/addressbook/AddressBookMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/day12/addressbook/AddressBookMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/day12/addressbook/Details.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/day12/addressbook/Details.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/day12/addressbook/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/day12/addressbook/AddressBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/day12/addressbook/AddressBookMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/day12/addressbook/AddressBookMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/day12/addressbook/Details.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/day12/addressbook/Details.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
