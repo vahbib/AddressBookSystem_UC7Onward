@@ -1,22 +1,33 @@
 package com.day12.addressbook;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import com.google.gson.Gson;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
-import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException; 
+
+
 
 public class AddressBook {
 
@@ -262,7 +273,7 @@ public class AddressBook {
 	 * UserCase 13 IO Operation
 	 */
 	public void readFromFile() throws FileNotFoundException {
-		File f = new File("F:\\Java_Workspace\\AddressDet.txt");
+		File f = new File("F:\\Java_Workspace\\AddressBook.txt");
 		Scanner myFile = new Scanner(f);
 		while (myFile.hasNextLine()) {
 			try {
@@ -304,7 +315,7 @@ public class AddressBook {
 	 * CSV File
 	 */
 	public void writeCSV() throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
-		String CSV_write_file = "F:\\Java_Workspace\\Day12AddressBookSystem\\AddressBookCSVwrite.txt";
+		String CSV_write_file = "F:\\Java_Workspace\\Day12AddressBookSystem\\AddressBookCSV.csv";
 		Writer writer = Files.newBufferedWriter(Paths.get(CSV_write_file));
 
 		StatefulBeanToCsv<Details> beanToCsv = new StatefulBeanToCsvBuilder(writer).withQuotechar(CSVWriter.NO_QUOTE_CHARACTER).build();
@@ -314,7 +325,7 @@ public class AddressBook {
 	}
 
 	public void readCSV() throws IOException {
-		String file_read = "F:\\Java_Workspace\\Day12AddressBookSystem\\AddressCSVreading.txt";
+		String file_read = "F:\\Java_Workspace\\Day12AddressBookSystem\\AddressCSV.csv";
 		Reader reader = Files.newBufferedReader(Paths.get(file_read));
 
 		CSVReader readCSV = new CSVReader(reader);
@@ -335,6 +346,7 @@ public class AddressBook {
 		}
 		readCSV.close();
 	}
+
 
 }
 

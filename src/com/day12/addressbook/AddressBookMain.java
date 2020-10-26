@@ -1,7 +1,12 @@
 package com.day12.addressbook;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 public class AddressBookMain {
 	public static AddressBook getAddressBook(String name) {
@@ -14,7 +19,7 @@ public class AddressBookMain {
 		String addBookName;
 		System.out.println("Welcome to Address Book Program in AddressBookMain class on START Master Branch");
 		Scanner sc = new Scanner(System.in);
-		AddressBook obj = new AddressBook();
+//		AddressBook ab = new AddressBook();
 		AddressBook ab;
 		AddressBookDictionary abdict = new AddressBookDictionary();
 		boolean while1 = true, while2 = true;
@@ -37,7 +42,9 @@ public class AddressBookMain {
 					while (while2) {
 
 						System.out.println(
-								"1. Add Address.\n2. Display The Details.\n3. Edit a Detail.\n4. Remove a Detail.\n5. Sort Alphabetically By Name.\n6. Sort By City.\n7. Sort By State.\n8. Sort By PinCode.\n9. Go to Main Menu.");
+								"1. Add Address.\n2. Display The Details.\n3. Edit a Detail.\n4. Remove a Detail."
+										+ "\n5. Sort Alphabetically By Name.\n6. Sort By City.\n7. Sort By State.\n8. Sort By PinCode.\n9. Write in CSV File."
+										+ "\n10. Read From CSV File.\n11. To Read From File.\n12. To Write in File.\n13. Go to Main Menu.");
 						System.out.println("Enter your choice: ");
 						int n = Integer.parseInt(sc.nextLine());
 
@@ -72,11 +79,11 @@ public class AddressBookMain {
 								long zp = Long.parseLong(sc.nextLine());
 
 								Details adrs = new Details(first, last, num, email, add, city, state, zp);
-								obj.addDetails(adrs);
+								ab.addDetails(adrs);
 							}
 						} else if (n == 2) {
 							System.out.println("The Details in the List are:");
-							ArrayList<Details> list = (ArrayList<Details>) obj.viewAllDetails();
+							ArrayList<Details> list = (ArrayList<Details>) ab.viewAllDetails();
 							for (Details c : list)
 								System.out.println("\nFirst Name: " + c.getFirstName() + "\nLast Name: "
 										+ c.getLastName() + "\nPhone no.: " + c.getPhoneNumber() + "\nEmail: "
@@ -89,10 +96,10 @@ public class AddressBookMain {
 							String fN = sc.nextLine();
 							System.out.println("Enter Last Name: ");
 							String lN = sc.nextLine();
-							ArrayList<Details> list = (ArrayList<Details>) obj.viewAllDetails();
+							ArrayList<Details> list = (ArrayList<Details>) ab.viewAllDetails();
 							for (Details c : list)
 								if (c.getFirstName().equalsIgnoreCase(fN) && c.getLastName().equalsIgnoreCase(lN)) {
-									obj.edit(c);
+									ab.edit(c);
 								}
 						} else if (n == 4) {
 							System.out.println("Enter the First Name to remove :");
@@ -102,22 +109,52 @@ public class AddressBookMain {
 							System.out.println("Do you want to remove the Detail (Y/N):");
 							String ans = sc.nextLine();
 							if (ans.equals("Y")) {
-								if (obj.removeDetails(first, last))
+								if (ab.removeDetails(first, last))
 									System.out.println("The Address Detail is successfully deleted.");
 							}
 						} else if (n == 5) {
-							obj.sortNameAlpha();
-						}
-						else if (n == 6) {
-							obj.sortCity();
-						}
-						else if (n == 7) {
-							obj.sortState();
-						}
-						else if (n == 8) {
-							obj.sortPin();
-						}
-						else if (n == 9) {
+							ab.sortNameAlpha();
+						} else if (n == 6) {
+							ab.sortCity();
+						} else if (n == 7) {
+							ab.sortState();
+						} else if (n == 8) {
+							ab.sortPin();
+						} else if (n == 9) {
+							try {
+								ab.writeCSV();
+							} catch (IOException e) {
+								e.printStackTrace();
+							} catch (CsvDataTypeMismatchException e) {
+								e.printStackTrace();
+							} catch (CsvRequiredFieldEmptyException e) {
+								e.printStackTrace();
+							}
+							break;
+
+						} else if (n == 10) {
+							try {
+								ab.readCSV();
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							break;
+
+						} else if (n == 11) {
+							try {
+								ab.readFromFile();
+							} catch (FileNotFoundException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							break;
+
+						} else if (n == 12) {
+							ab.writeInFile();
+							break;
+
+						} else if (n == 13) {
 							while2 = false;
 
 						} else {
